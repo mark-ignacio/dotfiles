@@ -72,3 +72,6 @@ set cc=80
 map <C-K> :pyf /home/jeff/clang-format.py<CR>
 imap <C-K> <ESC>:pyf /home/jeff/clang-format.py<CR>i
 
+cmap w!! w !sudo tee % >/dev/null
+
+
