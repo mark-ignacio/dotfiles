@@ -1,3 +1,3 @@
 #!/bin/bash
-ln -s ./.tmux.conf ~/.tmux.conf
-ln -s ./.vimrc ~/.vimrc
+ln -s `pwd`/.tmux.conf ~/.tmux.conf
+ln -s `pwd`/.vimrc ~/.vimrc
