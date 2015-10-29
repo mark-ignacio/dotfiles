@@ -15,6 +15,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/cscope.vim'
+Bundle 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,7 +50,7 @@ set incsearch "incremental search
 set tabstop=2 "tabs set to 4 spaces
 set shiftwidth=2 "indents also 4 spaces
 set shiftround "indent rount to next shiftwidth
-set expandtab "change all new tabs to spaces
+set noexpandtab "change all new tabs to spaces
 set backspace=indent,eol,start "smart-er backspaces
 set ww=b,s,h,l,<,>,[,] "set (b)ackspace, (s)pace, and arrows to jump lines
 "some color stuff
@@ -74,4 +78,9 @@ imap <C-K> <ESC>:pyf /home/jeff/clang-format.py<CR>i
 
 cmap w!! w !sudo tee % >/dev/null
 
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
 
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
