@@ -1,45 +1,31 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Start Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'rdnetto/YCM-Generator'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/cscope.vim'
+Plug 'vim-ruby/vim-ruby'
+call plug#end()
+" End Plugins
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-scripts/cscope.vim'
-Bundle 'vim-ruby/vim-ruby'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin commands are not allowed.
-
-let g:solarized_termcolors=256
+" Theme Start
 set background=dark
 colorscheme solarized
-
 set laststatus=2 "grey status bar on bottom
+let g:solarized_contrast="high"
+let g:solarized_termcolors=256
+set background=dark " dark | light "
+set t_Co=256 " 256 Color Term
+set cc=80  " Show the line at 80ch
+set showmode
+"" Theme End
+
+"" Config Stuff Start
 syn on "turn on syntax highlighting
 filetype indent on "smart indents based on filetypes
 set ai "auto indents
@@ -47,40 +33,45 @@ set nu "show line numbers
 set ic "case insensitive searches
 set smartcase "smart case searches, defaults to ic, if has caps, use it
 set incsearch "incremental search
-set tabstop=2 "tabs set to 4 spaces
-set shiftwidth=2 "indents also 4 spaces
+set tabstop=4 "tabs set to 4 spaces
+set shiftwidth=4 "indents also 4 spaces
 set shiftround "indent rount to next shiftwidth
-set noexpandtab "change all new tabs to spaces
+set noexpandtab "dont change all new tabs to spaces
 set backspace=indent,eol,start "smart-er backspaces
 set ww=b,s,h,l,<,>,[,] "set (b)ackspace, (s)pace, and arrows to jump lines
-"some color stuff
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
-set background=dark " dark | light "
-set t_Co=256
+filetype plugin on
+" w!! to save as root
+cmap w!! w !sudo tee % >/dev/null
+"" Config Stuff End
+
+"" Rainbow Parens Start
 let g:rbpt_max = 16
-
 let g:rbpt_loadcmd_toggle = 0
-
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-set showmode
-filetype plugin on
+"" Rainbow Parens end
+
+"" Tagbar Start
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
-set cc=80
+" Tagbar end
+
+" cscope start
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+nnoremap <leader>l :call ToggleLocationList()<CR>
+" cscope end
 
 map <C-K> :pyf /home/jeff/clang-format.py<CR>
 imap <C-K> <ESC>:pyf /home/jeff/clang-format.py<CR>i
 
-cmap w!! w !sudo tee % >/dev/null
 
-nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
-
+" ruby autocmpl
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" end ruby autocmpl
+
+
