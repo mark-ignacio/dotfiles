@@ -26,6 +26,7 @@ set showmode
 "" Theme End
 
 "" Config Stuff Start
+set nocompatible " be iMproved
 syn on "turn on syntax highlighting
 filetype indent on "smart indents based on filetypes
 set ai "auto indents
@@ -66,7 +67,6 @@ nnoremap <leader>l :call ToggleLocationList()<CR>
 
 map <C-K> :pyf /home/jeff/clang-format.py<CR>
 imap <C-K> <ESC>:pyf /home/jeff/clang-format.py<CR>i
-
 
 " ruby autocmpl
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
