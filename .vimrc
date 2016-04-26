@@ -67,7 +67,7 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 
 " cscope start
 nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-nnoremap <leader>l :call ToggleLocationList()<CR>
+nnoremap <leader>fl :call ToggleLocationList()<CR>
 " cscope end
 
 map <C-K> :pyf /home/jeff/clang-format.py<CR>
