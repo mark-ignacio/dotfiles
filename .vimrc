@@ -15,6 +15,7 @@ Plug 'rdnetto/YCM-Generator'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/cscope.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 " End Plugins
 
