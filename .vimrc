@@ -11,7 +11,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'rdnetto/YCM-Generator'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/cscope.vim'
 Plug 'vim-ruby/vim-ruby'
