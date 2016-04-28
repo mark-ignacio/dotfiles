@@ -16,6 +16,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/cscope.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " End Plugins
 
@@ -79,3 +81,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " end ruby autocmpl
+
+" Airline
+let g:airline_theme='bubblegum'
+" Airline
