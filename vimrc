@@ -86,3 +86,11 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " Airline
 let g:airline_theme='bubblegum'
 " Airline
+
+" Easymotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" Easymotion
