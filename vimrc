@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
+Plug 'jlanzarotta/bufexplorer'
 call plug#end()
 " End Plugins
 
@@ -52,6 +53,11 @@ set ww=b,s,h,l,<,>,[,] "set (b)ackspace, (s)pace, and arrows to jump lines
 filetype plugin on
 " w!! to save as root
 cmap w!! w !sudo tee % >/dev/null
+" caps are hard
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 "" Config Stuff End
 
 "" Rainbow Parens Start
@@ -94,3 +100,4 @@ nmap s <Plug>(easymotion-overwin-f2)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 " Easymotion
+
