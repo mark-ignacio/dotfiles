@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'alvan/vim-closetag'
 call plug#end()
 " End Plugins
 
@@ -100,4 +101,3 @@ nmap s <Plug>(easymotion-overwin-f2)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 " Easymotion
-
