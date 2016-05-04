@@ -92,6 +92,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Airline
 let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
 " Airline
 
 " Easymotion
