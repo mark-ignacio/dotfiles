@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'alvan/vim-closetag'
+Plug 'bling/vim-bufferline'
 call plug#end()
 " End Plugins
 
@@ -33,7 +34,6 @@ let g:solarized_termcolors=256
 set background=dark " dark | light "
 set t_Co=256 " 256 Color Term
 set cc=80  " Show the line at 80ch
-set showmode
 "" Theme End
 
 "" Config Stuff Start
