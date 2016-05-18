@@ -5,6 +5,6 @@ e asm.relsub = true
 eco solarized
 e cfg.fortunetype = tips,fun,nsfw
 # e dbg.slow = true
-"$context='drr; pd ($r-40);pxr 64@rsp'"
-"$ps='ds;$context'"
-"$pso='dso;$context'"
+"$context='drr;so -6; pd ($r-40);sr SP;pxr 64;sr PC'"
+"$ps='sr PC;ds;$context'"
+"$pso='sr PC;dso;$context'"
