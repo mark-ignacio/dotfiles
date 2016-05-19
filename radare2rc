@@ -1,4 +1,5 @@
 e scr.utf8 = true
+e scr.truecolor = true
 e bin.demangle = true
 e asm.demangle = true
 e asm.relsub = true
