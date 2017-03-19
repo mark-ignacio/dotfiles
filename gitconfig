@@ -1,3 +1,5 @@
 [user]
 	email = crowell@bu.edu
 	name = Jeffrey Crowell
+[color]
+	ui = auto
