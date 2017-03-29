@@ -23,6 +23,7 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'alvan/vim-closetag'
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/syntastic'
+Plug 'kballard/vim-swift'
 call plug#end()
 " End Plugins
 
