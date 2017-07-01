@@ -24,17 +24,21 @@ Plug 'alvan/vim-closetag'
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/syntastic'
 Plug 'kballard/vim-swift'
+Plug 'KeitaNakamura/neodark.vim'
 call plug#end()
 " End Plugins
 
 " Theme Start
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+colorscheme neodark
+let g:neodark#use_custom_terminal_theme = 1
+
 set laststatus=2 "grey status bar on bottom
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
-set background=dark " dark | light "
-set t_Co=256 " 256 Color Term
+"let g:solarized_contrast="high"
+"let g:solarized_termcolors=256
+"set background=dark " dark | light "
+"set t_Co=256 " 256 Color Term
 set cc=80  " Show the line at 80ch
 "" Theme End
 
@@ -84,8 +88,8 @@ nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
 nnoremap <leader>fl :call ToggleLocationList()<CR>
 " cscope end
 
-map <C-K> :pyf /home/jeff/clang-format.py<CR>
-imap <C-K> <ESC>:pyf /home/jeff/clang-format.py<CR>i
+map <C-K> :pyf /Users/jeff/.vim/clang-format.py<CR>
+imap <C-K> <ESC>:pyf /Users/jeff/.vim/clang-format.py<CR>i
 
 " ruby autocmpl
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
@@ -94,8 +98,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " end ruby autocmpl
 
 " Airline
-let g:airline_theme='bubblegum'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
+let g:airline_solarized_bg='dark'
 " Airline
 
 " Easymotion
