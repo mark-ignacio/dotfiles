@@ -98,9 +98,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " end ruby autocmpl
 
 " Airline
-let g:airline_theme='solarized'
+let g:airline_theme='neodark'
 let g:airline_powerline_fonts = 1
-let g:airline_solarized_bg='dark'
 " Airline
 
 " Easymotion
