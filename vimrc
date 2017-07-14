@@ -58,6 +58,7 @@ set noexpandtab "dont change all new tabs to spaces
 set backspace=indent,eol,start "smart-er backspaces
 set ww=b,s,h,l,<,>,[,] "set (b)ackspace, (s)pace, and arrows to jump lines
 set wildmenu " visual autocomplete for command menu
+set tags=./tags;/
 filetype plugin on
 " w!! to save as root
 cmap w!! w !sudo tee % >/dev/null
