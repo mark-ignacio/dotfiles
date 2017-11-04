@@ -119,3 +119,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " Syntastic
+
+" CtrlP
+if executable('ag')
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+" CtrlP
