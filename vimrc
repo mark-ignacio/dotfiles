@@ -23,6 +23,7 @@ Plug 'bling/vim-bufferline'
 Plug 'scrooloose/syntastic'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'kien/tabman.vim'
 call plug#end()
 " End Plugins
 
