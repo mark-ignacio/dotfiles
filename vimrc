@@ -14,7 +14,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/cscope.vim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -23,8 +22,8 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'alvan/vim-closetag'
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/syntastic'
-Plug 'kballard/vim-swift'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " End Plugins
 
@@ -49,6 +48,7 @@ filetype indent on "smart indents based on filetypes
 set ai "auto indents
 set nu "show line numbers
 set ic "case insensitive searches
+set autoread " automatically reload file on changes
 set smartcase "smart case searches, defaults to ic, if has caps, use it
 set incsearch "incremental search
 set tabstop=4 "tabs set to 4 spaces
