@@ -25,6 +25,8 @@ Plug 'KeitaNakamura/neodark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/tabman.vim'
 Plug 'jerrymarino/iCompleteMe'
+Plug 'jerrymarino/SwiftPlayground.vim'
+Plug 'TheCodedSelf/syntastic-swift'
 call plug#end()
 " End Plugins
 
@@ -120,6 +122,8 @@ let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_swift_checkers = ['swift']
 " Syntastic
 
 " CtrlP
