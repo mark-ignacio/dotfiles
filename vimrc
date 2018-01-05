@@ -5,7 +5,7 @@ endif
 
 " Start Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe', { 'for': []}
+Plug 'Valloric/YouCompleteMe'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
@@ -27,6 +27,7 @@ Plug 'kien/tabman.vim'
 Plug 'jerrymarino/iCompleteMe'
 Plug 'jerrymarino/SwiftPlayground.vim'
 Plug 'TheCodedSelf/syntastic-swift'
+Plug 'lyuts/vim-rtags'
 call plug#end()
 " End Plugins
 
@@ -131,10 +132,3 @@ if executable('ag')
 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 " CtrlP
-
-" YouCompleteMe
-" don't enable it for swift
-augroup plug_xtype
-  autocmd FileType * if expand('<amatch>') != 'swift' | call plug#load('YouCompleteMe') | execute 'autocmd! plug_xtype' | endif
-augroup END
-" YouCompleteMe
