@@ -32,16 +32,16 @@ call plug#end()
 " End Plugins
 
 " Theme Start
-"set background=dark
-"colorscheme solarized
-colorscheme neodark
-let g:neodark#use_custom_terminal_theme = 1
+set background=dark
+colorscheme solarized
+"colorscheme neodark
+" let g:neodark#use_custom_terminal_theme = 1
 
 set laststatus=2 "grey status bar on bottom
-"let g:solarized_contrast="high"
-"let g:solarized_termcolors=256
-"set background=dark " dark | light "
-"set t_Co=256 " 256 Color Term
+let g:solarized_contrast="high"
+let g:solarized_termcolors=256
+set background=dark " dark | light "
+set t_Co=256 " 256 Color Term
 set cc=80  " Show the line at 80ch
 "" Theme End
 
@@ -103,7 +103,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " end ruby autocmpl
 
 " Airline
-let g:airline_theme='neodark'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 " Airline
 
