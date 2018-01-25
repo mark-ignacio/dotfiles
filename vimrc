@@ -28,18 +28,21 @@ Plug 'jerrymarino/iCompleteMe'
 Plug 'jerrymarino/SwiftPlayground.vim'
 Plug 'TheCodedSelf/syntastic-swift'
 Plug 'lyuts/vim-rtags'
+Plug 'mileszs/ack.vim'
+Plug 'jnurmine/Zenburn'
 call plug#end()
 " End Plugins
 
 " Theme Start
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme zenburn
 "colorscheme neodark
 " let g:neodark#use_custom_terminal_theme = 1
 
 set laststatus=2 "grey status bar on bottom
-let g:solarized_contrast="high"
-let g:solarized_termcolors=256
+"let g:solarized_contrast="high"
+"let g:solarized_termcolors=256
 set background=dark " dark | light "
 set t_Co=256 " 256 Color Term
 set cc=80  " Show the line at 80ch
@@ -103,7 +106,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " end ruby autocmpl
 
 " Airline
-let g:airline_theme='solarized'
+let g:airline_theme='zenburn'
 let g:airline_powerline_fonts = 1
 " Airline
 
@@ -132,3 +135,9 @@ if executable('ag')
 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 " CtrlP
+
+" Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" Ack.vim
