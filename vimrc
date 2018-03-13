@@ -7,7 +7,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'bronson/vim-trailing-whitespace'
@@ -21,7 +20,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/syntastic'
-Plug 'KeitaNakamura/neodark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/tabman.vim'
 Plug 'jerrymarino/iCompleteMe'
@@ -35,14 +33,8 @@ call plug#end()
 
 " Theme Start
 set background=dark
-"colorscheme solarized
 colorscheme zenburn
-"colorscheme neodark
-" let g:neodark#use_custom_terminal_theme = 1
-
 set laststatus=2 "grey status bar on bottom
-"let g:solarized_contrast="high"
-"let g:solarized_termcolors=256
 set background=dark " dark | light "
 set t_Co=256 " 256 Color Term
 set cc=80  " Show the line at 80ch
