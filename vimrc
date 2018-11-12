@@ -5,37 +5,34 @@ endif
 
 " Start Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/cscope.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'bling/vim-bufferline'
-Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/tabman.vim'
-Plug 'jerrymarino/iCompleteMe'
-Plug 'jerrymarino/SwiftPlayground.vim'
-Plug 'TheCodedSelf/syntastic-swift'
 Plug 'lyuts/vim-rtags'
 Plug 'mileszs/ack.vim'
 Plug 'jnurmine/Zenburn'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
 call plug#end()
 " End Plugins
 
 " Theme Start
-set background=dark
 colorscheme zenburn
 set laststatus=2 "grey status bar on bottom
-set background=dark " dark | light "
 set t_Co=256 " 256 Color Term
 set cc=80  " Show the line at 80ch
 "" Theme End
@@ -68,34 +65,15 @@ cmap w!! w !sudo tee % >/dev/null
 :command Q q
 "" Config Stuff End
 
-"" Rainbow Parens Start
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-"" Rainbow Parens end
+" Rainbow Parens
+autocmd VimEnter * RainbowParentheses
+" Rainbow Parens
 
 "" Tagbar Start
 let g:tagbar_usearrows = 1
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
 " Tagbar end
-
-" cscope start
-nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
-nnoremap <leader>fl :call ToggleLocationList()<CR>
-" cscope end
-
-map <C-K> :pyf /Users/jeff/.vim/clang-format.py<CR>
-imap <C-K> <ESC>:pyf /Users/jeff/.vim/clang-format.py<CR>i
-
-" ruby autocmpl
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-" end ruby autocmpl
 
 " Airline
 let g:airline_theme='zenburn'
@@ -110,18 +88,6 @@ nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
 " Easymotion
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_swift_checkers = ['swift']
-" Syntastic
-
 " CtrlP
 if executable('ag')
 	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -133,3 +99,23 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 " Ack.vim
+
+" Deoplete
+set noshowmode
+let g:deoplete#enable_at_startup = 1
+let g:echodoc#enable_at_startup = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set completeopt=longest,menuone,preview
+set hidden
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
+let g:LanguageClient_settingsPath = '/Users/jeff/.config/nvim/settings.json'
+let g:LanguageClient_serverCommands = {
+	\ 'ruby': [ 'solargraph',  'stdio' ],
+    \ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    \ }
+" Deoplete
