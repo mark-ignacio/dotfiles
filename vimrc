@@ -18,7 +18,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'bling/vim-bufferline'
 Plug 'sheerun/vim-polyglot'
 Plug 'kien/tabman.vim'
-Plug 'lyuts/vim-rtags'
 Plug 'mileszs/ack.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'autozimu/LanguageClient-neovim', {
