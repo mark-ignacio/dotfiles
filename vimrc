@@ -116,5 +116,13 @@ let g:LanguageClient_serverCommands = {
     \ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
     \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
     \ }
 " Deoplete
+nnoremap <silent> <leader>xh :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader>xd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <leader>xx :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> <leader>xr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <leader>xf :call LanguageClient#textDocument_formatting()<CR>
+
