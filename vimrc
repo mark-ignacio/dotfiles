@@ -28,6 +28,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
+Plug 'sakhnik/nvim-gdb', { 'do': './install.sh' }
 call plug#end()
 " End Plugins
 
