@@ -17,7 +17,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'bling/vim-bufferline'
 Plug 'sheerun/vim-polyglot'
-Plug 'kien/tabman.vim'
+Plug 'szw/vim-maximizer'
 Plug 'mileszs/ack.vim'
 Plug 'jnurmine/Zenburn'
 Plug 'autozimu/LanguageClient-neovim', {
@@ -129,3 +129,7 @@ nnoremap <silent> <leader>xx :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> <leader>xr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <silent> <leader>xf :call LanguageClient#textDocument_formatting()<CR>
 
+" maximizer
+nnoremap <silent><C-w>z :MaximizerToggle<CR>
+vnoremap <silent><C-w>z :MaximizerToggle<CR>gv
+inoremap <silent><C-w>z <C-o>:MaximizerToggle<CR>
