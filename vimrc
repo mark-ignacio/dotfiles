@@ -133,3 +133,7 @@ nnoremap <silent> <leader>xf :call LanguageClient#textDocument_formatting()<CR>
 nnoremap <silent><C-w>z :MaximizerToggle<CR>
 vnoremap <silent><C-w>z :MaximizerToggle<CR>gv
 inoremap <silent><C-w>z <C-o>:MaximizerToggle<CR>
+
+" clang-format
+map <C-K> :pyf /usr/local/Cellar/llvm/8.0.0/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:pyf /usr/local/Cellar/llvm/8.0.0/share/clang/clang-format.py<cr>

@@ -1,4 +1,5 @@
 e scr.utf8 = true
+e scr.utf8.curvy = true
 e scr.color = 3
 e bin.demangle = true
 e asm.demangle = true
