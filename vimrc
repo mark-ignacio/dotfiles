@@ -6,10 +6,13 @@ endif
 " Start Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vista.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'easymotion/vim-easymotion'
@@ -22,7 +25,8 @@ Plug 'jnurmine/Zenburn'
 Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
-Plug 'sakhnik/nvim-gdb', { 'do': './install.sh' }
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+Plug 'honza/vim-snippets'
 call plug#end()
 " End Plugins
 
@@ -66,8 +70,8 @@ autocmd VimEnter * RainbowParentheses
 " Rainbow Parens
 
 "" Tagbar Start
-let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
+" let g:tagbar_usearrows = 1
+nnoremap <leader>l :Vista!!<CR>
 nnoremap <leader>t :NERDTreeToggle<CR>
 " Tagbar end
 
@@ -81,9 +85,11 @@ let g:EasyMotion_smartcase = 1
 " Easymotion
 
 " CtrlP
-if executable('ag')
-	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+"if executable('ag')
+	"let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"endif
+nnoremap <C-p> :Files<Cr>
+nnoremap <leader>. :Vista finder<cr>
 " CtrlP
 
 " Ack.vim
@@ -98,8 +104,8 @@ vnoremap <silent><C-w>z :MaximizerToggle<CR>gv
 inoremap <silent><C-w>z <C-o>:MaximizerToggle<CR>
 
 " clang-format
-map <C-K> :pyf /usr/local/Cellar/llvm/8.0.0/share/clang/clang-format.py<cr>
-imap <C-K> <c-o>:pyf /usr/local/Cellar/llvm/8.0.0/share/clang/clang-format.py<cr>
+map <C-K> :pyf /opt/brew/Cellar/llvm/8.0.0_1/share/clang/clang-format.py<cr>
+imap <C-K> <c-o>:pyf /opt/brew/Cellar/llvm/8.0.0_1/share/clang/clang-format.py<cr>
 
 " coc
 " if hidden is not set, TextEdit might fail.
@@ -208,3 +214,5 @@ let g:lightline = {
       \ },
       \ }
 
+let g:python2_host_prog = '/opt/brew/bin/python2'
+let g:python3_host_prog = '/opt/brew/bin/python3'
