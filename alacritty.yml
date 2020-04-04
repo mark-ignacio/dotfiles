@@ -51,7 +51,7 @@ window:
   decorations: transparent
 
   # When true, alacritty starts maximized.
-  start_maximized: false
+  window.startup_mode: Windowed
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -62,44 +62,27 @@ scrolling:
   # scrollback is enabled (history > 0).
   multiplier: 3
 
-  # Faux Scrolling
-  #
-  # The `faux_multiplier` setting controls the number of lines the terminal
-  # should scroll when the alternate screen buffer is active. This is used
-  # to allow mouse scrolling for applications like `man`.
-  #
-  # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
-
-  # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
-
-# Spaces per Tab (changes require restart)
-#
-# This setting defines the width of a tab in cells.
-#
-# Some applications, like Emacs, rely on knowing about the width of a tab.
-# To prevent unexpected behavior in these applications, it's also required to
-# change the `it` value in terminfo when altering this setting.
-tabspaces: 8
 
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face
   normal:
-    family: Source Code Pro for Powerline
+    # family: Source Code Pro for Powerline
+    family: Oxygen Mono
     # The `style` can be specified to pick a specific face.
     #style: Regular
 
   # Bold font face
   bold:
-    family: Source Code Pro for Powerline
+    family: Oxygen Mono
+    # family: Source Code Pro for Powerline
     # The `style` can be specified to pick a specific face.
     #style: Bold
 
   # Italic font face
   italic:
-    family: Source Code Pro for Powerline
+    family: Oxygen Mono
+    # family: Source Code Pro for Powerline
     # The `style` can be specified to pick a specific face.
     #style: Italic
 
@@ -136,10 +119,10 @@ font:
   use_thin_strokes: true
 
 # Display the time it takes to redraw each frame.
-render_timer: false
+debug.render_timer: false
 
 # Keep the log file after quitting Alacritty.
-persistent_logging: false
+debug.persistent_logging: false
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -163,9 +146,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
+  cursor:
+    text: '0x000000'
+    cursor: '0xffffff'
 
   # Normal colors
   normal:
@@ -240,6 +223,7 @@ visual_bell:
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 1.0
+# background_opacity: 0.9
 
 # Mouse bindings
 #
