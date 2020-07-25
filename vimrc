@@ -22,7 +22,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'szw/vim-maximizer'
 Plug 'mileszs/ack.vim'
 Plug 'jnurmine/Zenburn'
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
