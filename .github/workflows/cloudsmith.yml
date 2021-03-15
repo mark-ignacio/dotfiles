@@ -15,7 +15,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install ruby ruby-dev rubygems build-essential -y
-          gem install --no-document fpm
+          sudo gem install --no-document fpm
       - name: make
         run: make deb rpm
       - name: Upload artifacts
