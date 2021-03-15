@@ -1,8 +1,7 @@
 name: cloudsmith
 
 on:
-  push:
-    branches: [master]
+  create:
   workflow_dispatch: {}
 
 jobs:
@@ -17,7 +16,7 @@ jobs:
           sudo apt-get install ruby ruby-dev rubygems build-essential -y
           sudo gem install --no-document fpm
       - name: make
-        run: make deb rpm
+        run: make deb rpm VERSION=$(git describe --exact-match --tags)
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -33,10 +32,6 @@ jobs:
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2
-      - name: Rename artifacts
-        run: |
-          mv packages/*.deb packages/dotfiles.deb
-          mv packages/*.rpm packages/dotfiles.rpm
       - name: Push buster deb
         uses: cloudsmith-io/action@master
         with:
@@ -47,7 +42,7 @@ jobs:
           distro: debian
           release: buster
           repo: dotfiles
-          file: "packages/dotfiles.deb"
+          file: "packages/*.deb"
       - name: Push rpm
         uses: cloudsmith-io/action@master
         with:
@@ -58,4 +53,4 @@ jobs:
           distro: any-distro
           release: any-version
           repo: dotfiles
-          file: "packages/dotfiles.rpm"
+          file: "packages/*.rpm"
