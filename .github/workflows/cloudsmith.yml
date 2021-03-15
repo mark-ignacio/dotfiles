@@ -1,0 +1,53 @@
+name: cloudsmith
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: {}
+
+jobs:
+  package:
+    name: Make packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install fpm
+        run: |
+          sudo apt-get update
+          sudo apt-get install ruby ruby-dev rubygems build-essential -y
+          gem install --no-document fpm
+      - name: make
+        run: make deb rpm
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: packages
+          path: |
+            *.deb
+            *.rpm
+          retention-days: 1
+  push:
+    name: Push to Cloudsmith
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+      - name: Push buster deb
+        uses: cloudsmith-io/action@master
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+          command: push
+          format: deb
+          owner: ignacio-io
+          repo: dotfiles
+          file: "*.deb"
+      - name: Push rpm
+        uses: cloudsmith-io/action@master
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+          command: push
+          format: rpm
+          owner: ignacio-io
+          repo: dotfiles
+          file: "*.rpm"
