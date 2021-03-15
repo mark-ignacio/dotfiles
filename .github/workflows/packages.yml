@@ -1,0 +1,19 @@
+name: dev-packages
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  package:
+    name: Make packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install fpm
+        run: |
+          sudo apt-get update
+          sudo apt-get install ruby ruby-dev rubygems build-essential -y
+          sudo gem install --no-document fpm
+      - name: make
+        run: make deb rpm VERSION=$GITHUB_SHA

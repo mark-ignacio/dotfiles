@@ -18,7 +18,8 @@ rpm: build
 		-t rpm \
 		-C build \
 		--name dotfiles \
-		--version '$(NOWISH)' \
+		--version '$(VERSION)' \
+		--iteration '$(NOWISH)' \
 		--maintainer 'Mark Ignacio <mark@ignacio.io>' \
 		--depends tmux \
 		--config-files /etc/tmux.conf \
@@ -32,7 +33,8 @@ deb: build
 		-t deb \
 		-C build \
 		--name dotfiles \
-		--version '$(NOWISH)' \
+		--version '$(VERSION)' \
+		--iteration '$(NOWISH)' \
 		--maintainer 'Mark Ignacio <mark@ignacio.io>' \
 		--depends tmux \
 		--config-files /etc/tmux.conf \
