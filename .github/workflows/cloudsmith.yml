@@ -40,6 +40,8 @@ jobs:
           command: push
           format: deb
           owner: ignacio-io
+          distro: debian
+          release: buster
           repo: dotfiles
           file: "*.deb"
       - name: Push rpm
@@ -49,5 +51,7 @@ jobs:
           command: push
           format: rpm
           owner: ignacio-io
+          distro: any-distro
+          release: any-version
           repo: dotfiles
           file: "*.rpm"
