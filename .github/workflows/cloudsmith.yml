@@ -47,7 +47,7 @@ jobs:
           distro: debian
           release: buster
           repo: dotfiles
-          file: "*.deb"
+          file: "packages/dotfiles.deb"
       - name: Push rpm
         uses: cloudsmith-io/action@master
         with:
@@ -58,4 +58,4 @@ jobs:
           distro: any-distro
           release: any-version
           repo: dotfiles
-          file: "*.rpm"
+          file: "packages/dotfiles.rpm"
