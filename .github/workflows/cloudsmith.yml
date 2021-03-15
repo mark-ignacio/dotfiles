@@ -33,6 +33,10 @@ jobs:
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2
+      - name: Rename artifacts
+        run: |
+          mv *.deb dotfiles.deb
+          mv *.rpm dotfiles.rpm
       - name: Push buster deb
         uses: cloudsmith-io/action@master
         with:
