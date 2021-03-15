@@ -1,7 +1,6 @@
 name: dev-packages
 
 on:
-  pull_request:
   push:
 
 jobs:
