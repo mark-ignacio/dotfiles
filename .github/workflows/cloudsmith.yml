@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2
-      - name: Push buster deb
+      - name: Push debian/buster deb
         uses: cloudsmith-io/action@master
         with:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
@@ -41,6 +41,17 @@ jobs:
           owner: ignacio-io
           distro: debian
           release: buster
+          repo: dotfiles
+          file: "packages/*.deb"
+      - name: Push ubuntu/bionic deb
+        uses: cloudsmith-io/action@master
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+          command: push
+          format: deb
+          owner: ignacio-io
+          distro: ubuntu
+          release: bionic
           repo: dotfiles
           file: "packages/*.deb"
       - name: Push rpm
